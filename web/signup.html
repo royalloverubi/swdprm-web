@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="signup.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        
+       
+       
+        <style>
+            body {
+                padding-top:50px;
+            }
+            fieldset {
+                border: thin solid #ccc; 
+                border-radius: 4px;
+                padding: 20px;
+                padding-left: 40px;
+                background: #fbfbfb;
+            }
+            legend {
+               color: #678;
+            }
+            .form-control {
+                width: 95%;
+            }
+            label small {
+                color: #678 !important;
+            }
+            span.req {
+                color:maroon;
+                font-size: 112%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+	<div class="row">
+        <div class="col-md-6">
+            <fieldset><legend class="text-center">Sign up free for now and forever</legend>
+
+            <div class="form-group">
+            <label for="phonenumber"><span class="req">* </span> Phone Number: </label>
+                    <input required name="phonenumber" id="phone" class="form-control phone" maxlength="12" type="text" placeholder="Phone number"/> 
+            </div>
+
+            <div class="form-group">
+                <label for="lastname"><span class="req">* </span> Name: </label> 
+                    <input class="form-control" type="text" name="name" id = "name" placeholder="Name" required />  
+                        <div id="errLast"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email"><span class="req">* </span> Email Address: </label> 
+                <input class="form-control" required type="text" name="email" id = "email"  onchange="email_validate(this.value);" placeholder="Email"/>   
+                        <div class="status" id="status"></div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="password"><span class="req">* </span> Password: </label>
+                <input id="password" required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16" placeholder="Password"/> </p>
+
+                <label for="password"><span class="req">* </span> Password Confirm: </label>
+                    <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16" placeholder="Re-password"  id="pass2" onkeyup="checkPass(); return false;" />
+                        <span id="confirmMessage" class="confirmMessage"></span>
+            </div>
+                <p id="demo" hidden>Click the button to get your position:</p>
+        <div id="mapholder"></div>
+        <script>
+            
+            var x = document.getElementById("demo");
+            function getLocation(){
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showPosition,showError);
+                }else{
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+            function showPosition(position){
+                x.innerHTML = "Latitude: "+position.coords.longitude +
+                        "<br>Longitude: "+ position.coords.latitude;
+                var latlon = position.coords.latitude+","+position.coords.longitude;
+                var spect = "10.871590999999999,106.6345886";
+                var img_Url = "http://maps.googleapis.com/maps/api/staticmap?center="+spect+"&zoom=14&size=400x300&&markers=color:blue%7Clabel:Your%7C"+spect+"&sensor=false&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
+                document.getElementById("mapholder").innerHTML = "<img src='"+img_Url+"'>";
+            }
+            function showError(error){
+                switch(error.code){
+                    case error.PERMISSION_DENIED:
+                        x.innerHTML = "User denied the request for Geolocation";
+                        break;
+                    case error.POSITION_UNAVALABLE:
+                        x.innerHTML = "Location information is unavailable";
+                        break;
+                    case error.TIMEOUT:
+                        x.innerHTML = "The request to get user location time out";
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        x.innerHTML = "An unknown error occured";
+                        break;
+                }
+            }
+            getLocation();
+        </script>
+            <div class="form-group">
+                <input class="btn btn-success" type="submit" name="submit_reg" value="Register" onClick="summit()">
+            </div>
+            </fieldset>
+        </div><!-- ends col-6 -->
+	</div>
+</div>
+    </body>
+</html>

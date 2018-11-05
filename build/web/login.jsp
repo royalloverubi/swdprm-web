@@ -33,7 +33,8 @@
                                 </div>
                                 <hr class="my-4">
                                 <p style="color: red">${messageErr}</p>
-                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>   
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                                <a href="signup.html">Signup now for start free forever</a>
                             </form>
                         </div>
                     </div>
