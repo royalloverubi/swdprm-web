@@ -1,0 +1,27 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="">
+            <result>login.jsp</result>
+        </action>
+        <action name="login" class="lamtt.action.LoginAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">cyber</param>
+            </result>
+            <result name="fail">login.jsp</result>
+        </action>
+        <action name="cyber" class="lamtt.action.CyberAction">
+            <result name="success">cyber.jsp</result>
+        </action>
+        
+        <action name="approve" class="lamtt.action.ApproveAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">cyber</param>
+            </result>
+        </action>
+    </package>
+</struts>
