@@ -90,7 +90,7 @@ and open the template in the editor.
                 x.innerHTML = "Latitude: "+position.coords.longitude +
                         "<br>Longitude: "+ position.coords.latitude;
                 var latlon = position.coords.latitude+","+position.coords.longitude;
-                var spect = "10.871590999999999,106.6345886";
+                var spect = "10.8523438,106.6268788";
                 var img_Url = "http://maps.googleapis.com/maps/api/staticmap?center="+spect+"&zoom=14&size=400x300&&markers=color:blue%7Clabel:Your%7C"+spect+"&sensor=false&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
                 document.getElementById("mapholder").innerHTML = "<img src='"+img_Url+"'>";
             }

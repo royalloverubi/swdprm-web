@@ -68,8 +68,8 @@ function summit(){
     var email = $('#email').val();
     var password = $('#password').val();
        
-    var lat = "10.871590999999999";
-    var long = "106.6345886";
+    var lat = "10.8523438";
+    var long = "106.6268788";
     
     var role ="cyber";
     var active = "true";
