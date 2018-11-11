@@ -28,8 +28,8 @@
                             <p class="navbar-brand">Quản lí quán net</p>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li><a href="#">Yêu cầu đặt chỗ</a></li>
-                            <li><a href="#">Thông tin quán net</a></li>
+                            <li><a href="cyber">Yêu cầu đặt chỗ</a></li>
+                            <li><a href="cyberInfo">Thông tin quán net</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#"><span class="glyphicon glyphicon-user"></span> <s:property value="%{#session.CYBER.username}"/></a></li>

@@ -28,5 +28,8 @@
                 login.jsp
             </result>
         </action>
+        <action name="cyberInfo" class="lamtt.action.CyberInfoAction">
+            <result name="success">cyberinfo.jsp</result>
+        </action>
     </package>
 </struts>

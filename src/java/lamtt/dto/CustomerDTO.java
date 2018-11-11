@@ -1,4 +1,4 @@
-package com.example.demo.service.dto;
+package lamtt.dto;
 
 import java.io.Serializable;
 

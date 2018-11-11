@@ -5,7 +5,8 @@
  */
 package lamtt.action;
 
-import com.example.demo.service.dto.ServiceRequestDetailDTO;
+
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -17,6 +18,8 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import lamtt.dto.AccountDTO;
+import lamtt.dto.CyberGamingDTO;
+import lamtt.dto.ServiceRequestDetailDTO;
 
 /**
  *
@@ -26,8 +29,8 @@ public class CyberAction {
 
     private List<ServiceRequestDetailDTO> listRequestNeedToApprove;
     private List<ServiceRequestDetailDTO> listRequestNeedToDone;
-    private final String URL_GET_APPROVE = "https://swd-backend-lamtt.herokuapp.com/serviceRequest/getListNeedToAproveByAccountId/%d";
-    private final String URL_GET_DONE = "https://swd-backend-lamtt.herokuapp.com/serviceRequest/getListNeedToDoneByAccountId/%d";
+    private final String URL_GET_APPROVE = "https://swd-backend-admin.herokuapp.com/serviceRequest/getListNeedToAprove/%d";
+    private final String URL_GET_DONE = "https://swd-backend-admin.herokuapp.com/serviceRequest/getListNeedToDone/%d";
     private final String SUCCESS = "success";
 
     public CyberAction() {
@@ -36,9 +39,9 @@ public class CyberAction {
     public String execute() throws Exception {
         String result = SUCCESS;
         Map session = ActionContext.getContext().getSession();
-        AccountDTO accountDTO = (AccountDTO) session.get("CYBER");
+        CyberGamingDTO cyberGamingDTO = (CyberGamingDTO) session.get("CYBERDETAIL");
         try {
-            URL url = new URL(String.format(URL_GET_APPROVE, accountDTO.getId()));
+            URL url = new URL(String.format(URL_GET_APPROVE, cyberGamingDTO.getId()));
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -49,7 +52,6 @@ public class CyberAction {
             BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
             String output;
             if ((output = br.readLine()) != null) {
-                System.out.println(output);
                 TypeToken<List<ServiceRequestDetailDTO>> typeToken = new TypeToken<List<ServiceRequestDetailDTO>>() {
                 };
                 Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
@@ -60,7 +62,7 @@ public class CyberAction {
         }
         
         try {
-            URL url = new URL(String.format(URL_GET_DONE, accountDTO.getId()));
+            URL url = new URL(String.format(URL_GET_DONE, cyberGamingDTO.getId()));
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -71,7 +73,6 @@ public class CyberAction {
             BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
             String output;
             if ((output = br.readLine()) != null) {
-                System.out.println(output);
                 TypeToken<List<ServiceRequestDetailDTO>> typeToken = new TypeToken<List<ServiceRequestDetailDTO>>() {
                 };
                 Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
