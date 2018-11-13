@@ -26,7 +26,7 @@ public class CyberInfoAction {
     
     private final String SUCCESS = "success";
     private CyberGamingDTO cyberDetail;
-    private final String URL_GET_CYBER = "https://swd-backend-admin.herokuapp.com/cyber/%d";
+    private final String URL_GET_CYBER = "https://swd-backend-admin.herokuapp.com/cybers/%d";
     
     public CyberInfoAction() {
     }

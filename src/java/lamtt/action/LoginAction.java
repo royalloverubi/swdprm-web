@@ -31,7 +31,7 @@ public class LoginAction {
     private String messageErr;
     private final String SUCCESS = "success";
     private final String FAIL = "fail";
-    private final String URL_GET_CYBER = "https://swd-backend-admin.herokuapp.com/cyber/getByAccountId/%d";
+    private final String URL_GET_CYBER = "https://swd-backend-admin.herokuapp.com/cybers/getByAccountId/%d";
 
     public LoginAction() {
     }

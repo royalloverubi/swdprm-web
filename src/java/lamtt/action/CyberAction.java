@@ -29,8 +29,8 @@ public class CyberAction {
 
     private List<ServiceRequestDetailDTO> listRequestNeedToApprove;
     private List<ServiceRequestDetailDTO> listRequestNeedToDone;
-    private final String URL_GET_APPROVE = "https://swd-backend-admin.herokuapp.com/serviceRequest/getListNeedToAprove/%d";
-    private final String URL_GET_DONE = "https://swd-backend-admin.herokuapp.com/serviceRequest/getListNeedToDone/%d";
+    private final String URL_GET_APPROVE = "https://swd-backend-admin.herokuapp.com/serviceRequests/getListNeedToAprove/%d";
+    private final String URL_GET_DONE = "https://swd-backend-admin.herokuapp.com/serviceRequests/getListNeedToDone/%d";
     private final String SUCCESS = "success";
 
     public CyberAction() {
