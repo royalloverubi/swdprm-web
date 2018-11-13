@@ -2,11 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/DELL/Desktop/Web/swdprm-web/src/java/lamtt/action/ApproveAction.java</file>
             <file>file:/C:/Users/DELL/Desktop/Web/swdprm-web/src/java/Module/PushNotifictionHelper.java</file>
             <file>file:/C:/Users/DELL/Desktop/Web/swdprm-web/src/java/lamtt/action/CyberAction.java</file>
             <file>file:/C:/Users/DELL/Desktop/Web/swdprm-web/src/java/lamtt/action/LoginAction.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 49c6f3042fe6150eabe2a4cbcd6ec6ff83076679
     </open-files>
 </project-private>
