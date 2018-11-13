@@ -23,6 +23,7 @@ public class LogoutAction {
         
         Map session = ActionContext.getContext().getSession();
         session.remove("CYBER");
+        session.remove("CYBERDETAIL");
         return SUCCESS;
     }
     

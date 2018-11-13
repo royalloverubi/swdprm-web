@@ -16,6 +16,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Cyber Page</title>
+        <style>
+            .checked {
+                color: orange;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -46,7 +51,7 @@
                 <div class="col-md-2">
                     <img src="<s:property value="%{cyberDetail.logo}"/>" width="100%">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-10">
                     <h4><b>Tên quán :</b> <s:property value="%{cyberDetail.name}"/></h4>
                     <h4><b>Địa chỉ :</b> <s:property value="%{cyberDetail.address}"/></h4>
                     <h4><b>Đánh giá người dùng : </b><span class="fa fa-star checked"></span>
@@ -55,11 +60,13 @@
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star"></span></h4>
                 </div>
-                <div class="col-md-5">
-                    <h4 class="text-left"">Giá : <span style="color: green; font-weight: bold;">5.000 vnd/h </span><button type="button" class="btn"><i class="far fa-edit"></i></button> </h4>
-                    <h4 class="text-left"">Tổng số máy : <span style="color: red; font-weight: bold;">28 máy </span> <button type="button" class="btn"><i class="far fa-edit"></i></button></h4>
-                </div>
+                
             </div>
+              
+                    <div class="row">
+                        
+                    </div>
+                    
         </div>
 
     </body>

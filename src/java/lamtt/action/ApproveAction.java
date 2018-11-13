@@ -16,7 +16,7 @@ public class ApproveAction {
     
     private int requestId;
     private final String SUCCESS = "success";
-    private final String URL_APPROVE = "https://swd-backend-lamtt.herokuapp.com/serviceRequest/approve/%d";
+    private final String URL_APPROVE = "https://swd-backend-lamtt.herokuapp.com/serviceRequests/approve/%d";
     public ApproveAction() {
     }
     

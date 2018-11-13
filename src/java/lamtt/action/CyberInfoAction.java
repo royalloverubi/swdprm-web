@@ -16,7 +16,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
+import lamtt.dto.ConfigurationDTO;
 import lamtt.dto.CyberGamingDTO;
+import lamtt.dto.RoomDTO;
 
 /**
  *
@@ -26,7 +28,11 @@ public class CyberInfoAction {
     
     private final String SUCCESS = "success";
     private CyberGamingDTO cyberDetail;
-    private final String URL_GET_CYBER = "https://swd-backend-admin.herokuapp.com/cyber/%d";
+    private final String URL_GET_CYBER = "https://swd-backend-admin.herokuapp.com/cybers/%d";
+    private final String URL_GET_ROOM = "https://swd-backend-admin.herokuapp.com/rooms/getByCyberId/%d";
+    private final String URL_GET_CONFIG = "https://swd-backend-admin.herokuapp.com/configurations/getByCyberId/%d";
+    private List<RoomDTO> listRoom;
+    private List<ConfigurationDTO> listConfig;
     
     public CyberInfoAction() {
     }
@@ -52,6 +58,44 @@ public class CyberInfoAction {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        try {
+            URL url = new URL(String.format(URL_GET_ROOM, cyberGamingDTO.getId()));
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+            if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                throw new RuntimeException("Failed : HTTP error code : "
+                        + conn.getResponseCode());
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String output;
+            if ((output = br.readLine()) != null) {
+                TypeToken<List<RoomDTO>> typeToken = new TypeToken<List<RoomDTO>>(){};
+                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
+                listRoom = gson.fromJson(output, typeToken.getType());
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        try {
+            URL url = new URL(String.format(URL_GET_ROOM, cyberGamingDTO.getId()));
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+            if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                throw new RuntimeException("Failed : HTTP error code : "
+                        + conn.getResponseCode());
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String output;
+            if ((output = br.readLine()) != null) {
+                TypeToken<List<ConfigurationDTO>> typeToken = new TypeToken<List<ConfigurationDTO>>(){};
+                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
+                listConfig = gson.fromJson(output, typeToken.getType());
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         return SUCCESS;
     }
 
@@ -61,6 +105,22 @@ public class CyberInfoAction {
 
     public void setCyberDetail(CyberGamingDTO cyberDetail) {
         this.cyberDetail = cyberDetail;
+    }
+
+    public List<RoomDTO> getListRoom() {
+        return listRoom;
+    }
+
+    public void setListRoom(List<RoomDTO> listRoom) {
+        this.listRoom = listRoom;
+    }
+
+    public List<ConfigurationDTO> getListConfig() {
+        return listConfig;
+    }
+
+    public void setListConfig(List<ConfigurationDTO> listConfig) {
+        this.listConfig = listConfig;
     }
     
     
