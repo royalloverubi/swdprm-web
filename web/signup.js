@@ -146,7 +146,8 @@ function createCyber(accountId,address,latitude,logitude,name){
   logitude: logitude,
   logo: "https://image.ibb.co/eZasF0/icon-shop-detail.jpg",
   name: name,
-  starAverage: 5
+  numberOfEvaluator: 5,
+  numberOfStar:1
 };
 var queryURL = "https://cors-anywhere.herokuapp.com/"
     var originCreateCust = "https://swd-backend-lamtt.herokuapp.com/cyber";
